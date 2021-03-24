@@ -17,26 +17,25 @@ ll makePair(ll n)
     ll notSelected= makePair(n-1);
 
 
-    return selected+notSelected; 
+    return selected+notSelected;
 }
 
 void solve()
 {
-
+    cout<<"Enter the Number of Friends : ";
     int n;
     cin>>n;
 
     ll totalPairs=makePair(n);
-
-    cout<<totalPairs<<endl;
+    cout<<"Total Number of possible ways"<<totalPairs<<endl;
 
 }
 
 int main()
 {
-    
+    cout<<"*********** Running Naive Algorithm ************ \n";
     int t=1;
-    
+
     while(t)
     {
         solve();
