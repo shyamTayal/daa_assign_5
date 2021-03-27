@@ -14,19 +14,23 @@ void solve()
     cin>>n;
 
 
-    ll totalPairs[n+1];
-    memset(totalPairs,0,sizeof(totalPairs));
-
-    totalPairs[0]=1;
-    totalPairs[1]=1;
+    ll totalPairs =0;
+    ll prev =1;
+    ll prev2=1;
 
     for (ll  curr =2 ; curr <=n ; curr++)
     {
-        totalPairs[curr]= totalPairs[curr-1]+(curr-1)*totalPairs[curr-2];
+
+       totalPairs=prev+(curr-1ll)*prev2;
+       prev2=prev;
+       prev=totalPairs;
+
+   
     }
+    
+    if(n==0||n==1) totalPairs=1;
 
-
-    cout<<"Total Number of possible ways"<<totalPairs[n]<<endl;
+    cout<<"Total Number of possible ways"<<totalPairs<<endl;
 
 
 }

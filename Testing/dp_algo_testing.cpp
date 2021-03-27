@@ -2,7 +2,7 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long int
+#define ll unsigned long long int
 const ll mod = 1e9 + 7;
 
 ll friendPairing(int , ll []);
@@ -24,7 +24,8 @@ int main()
     return 0;
 }
 ll friendPairing(int n, ll totalPairs[]){
-      for (ll  curr = 0 ; curr <=n ; curr++){
+      totalPairs[0]=1;
+      for (ll  curr = 1 ; curr <=n ; curr++){
             if(curr <= 2)
                   totalPairs[curr] = curr;
             else

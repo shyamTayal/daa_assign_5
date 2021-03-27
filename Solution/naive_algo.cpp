@@ -3,7 +3,7 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long int
+#define ll unsigned long long int
 const ll mod = 1e9 + 7;
 
 
