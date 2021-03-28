@@ -1,0 +1,188 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{listings}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{algorithmic}
+\usepackage{setspace, caption}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Find out the total number of ways in which friends can remain single or can be paired up
+\\
+{\footnotesize {
+IV semester - Bachelor’s of Technology in Information technology with specialization in Business Informatics,\\
+Indian Institute of Information Technology Allahabad, India
+}}
+\thanks{}
+}
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Abhijeet Sonkar}
+\IEEEauthorblockA{\textit{IIB2019009} \\
+iiB2019009@iiita.ac.in \\
+Abhijeet-sonkar}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Aditya Raj}
+\IEEEauthorblockA{\textit{IIB2019007} \\
+iib2019007@iiita.ac.in \\
+Adityahulk}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Shyam Tayal}
+\IEEEauthorblockA{\textit{IIB2019008} \\
+iib2019008@iiita.ac.in \\
+shyamTayal}
+}
+
+
+\maketitle
+
+\begin{abstract}
+In this paper, we are devising an algorithm to find the total number of ways in which friends can remain single or can be paired up given n friends and every one of them can pair with each other using Dynamic Programming. This paper also analyzes the time and space complexity of the algorithms used and provides the most efficient approach to solve the given problem.
+\end{abstract}
+\bigskip
+\begin{IEEEkeywords}
+iterative, recursion, bottom up, memoization, time complexity, space complexity, Dynamic Programming
+\end{IEEEkeywords}
+
+\section{Introduction}
+Dynamic Programming is mainly an optimization over plain recursion. Wherever we see a recursive solution that has repeated calls for same inputs, we can optimize it using Dynamic Programming. The idea is to simply store the results of subproblems, so that we do not have to re-compute them when needed later. This simple optimization reduces time complexities from exponential to polynomial.
+
+Steps of doing Dynamic Programming
+
+Characterize the structure of an optimal solution.
+Recursively define the value of an optimal solution.
+Compute the value of an optimal solution in a bottom-up fashion.
+Construct an optimal solution from computed information.
+
+\section{Algorithm Design}
+We have devised two algorithms to Find the possible pairs among n friends.
+
+Implementing steps of Naive Algorithm-> 
+All possible combination of pair of n friends can be calculated with
+the help n-1 and n-2 friends
+We can solve this dependency with the help of recursion
+The recursion dependency calculates n as pair(n-1)*((n-1)*pair(n-2))
+
+
+\bigskip
+
+\begin{algorithm}[H]
+\begin{lstlisting}
+ll makePair(ll n)
+{
+
+    if(n==0||n==1)  return 1;
+
+    ll selected = (n-1)*makePair(n-2);
+    ll notSelected= makePair(n-1);
+
+
+    return selected+notSelected;
+}
+
+\end{lstlisting}
+
+ \caption{Naive Algorithm (Recursion) }
+\end{algorithm}
+
+\bigskip
+The dependency relationship for any recursion problem can be solved 
+using Dynamic Programming.
+
+\newline Here also for every recursion output,we can store it for future use,i.e memoization.
+\newline Every output is stored in variable,if called again,directly variable can be used,which reduces
+exponential time complexity to linear.
+
+\bigskip
+
+\begin{algorithm}[H]
+\begin{lstlisting}
+totalPairs[0]=1;
+    totalPairs[1]=1;
+
+    for (ll  curr =2 ; curr <=n ; curr++)
+    {
+        totalPairs[curr]= totalPairs[curr-1]+(curr-1)*totalPairs[curr-2];
+    }
+\end{lstlisting}
+
+ \caption{Eficient Algorithm(Dynamic Programming1)}
+\end{algorithm}
+\bigskip
+
+The dynamic programming can also be more optimized in space complexity by using bottom up approach.
+
+\newline For the recursion output,we can also use iteration to get current value from previous one.
+\newline The iteration apart from simplicity also reduces space complexity.
+
+\bigskip
+
+\begin{algorithm}[H]
+\begin{lstlisting}
+for (ll  curr =2 ; curr <=n ; curr++)
+    {
+
+       totalPairs=prev+(curr-1ll)*prev2;
+       prev2=prev;
+       prev=totalPairs;
+
+   
+    }
+    
+if(n==0||n==1) totalPairs=1;
+\end{lstlisting}
+
+ \caption{Eficient Algorithm(Dynamic Programming2)}
+\end{algorithm}
+\bigskip
+\newpage
+
+
+\section{Algorithm Analysis}
+\centerline{\includegraphics[width=80mm]{tc_naive.png}}
+\caption{Algorithm Analysis}
+\centerline{\textit{ }}
+\label{fig:graph}
+\end{figure}
+
+% \newpage
+
+
+\begin{figure}[h!]
+\centerline{\includegraphics[width=80mm]{tc_naive.png}}
+\caption{Algorithm 1 VS N}
+\centerline{\textit{ }}
+\label{fig:graph}
+\end{figure}
+
+\begin{figure}[h!]
+\centerline{\includegraphics[width=80mm]{tc_linear.png}}
+\caption{Algorithm 2 VS N}
+\centerline{\textit{ }}
+\label{fig:graph}
+\end{figure}
+
+\begin{figure}[h!]
+\centerline{\includegraphics[width=80mm]{tc_log.png}}
+\caption{Algorithm 2 VS N}
+\centerline{\textit{ }}
+\label{fig:graph}
+ \end{figure}
+\newpage
+
+\section{Conclusion}
+DP 2 is more efficient algorithmThe reason is both time complexity and space complexity equation
+The second algorithm has O(N) i.e linear time dependency while first algorithm has. The main reason behind this is the use of Dynamic Programming also by iteration that reduces both time complexity and space complexity. The recursion has time complexity problem but even DP1 i.e implemented by memoization has space occurrence which is not present in iterative version i.e DP2.
+
+\begin{thebibliography}{00}
+\bibitem{b1}https://www.geeksforgeeks.org/dynamic-programming/
+\bibitem{b2}https://www.geeksforgeeks.org/tabulation-vs-memoization/
+\end{thebibliography}
+
+\end{document}
