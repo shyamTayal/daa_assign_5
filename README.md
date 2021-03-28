@@ -45,8 +45,20 @@ g++ dp_algo_2.cpp -o dp_algo_2
 ```
 #### Output (by Solution files)
 ```
-Enter the Number of Friends :  5
-Total Number of possible ways : 26
+************* Running Naive Algorithm **************
+Enter the Number of Friends : 7
+Total Number of possible ways : 232
+****************************************************
+
+*********** Running Efficient Algorithm ************
+Enter the Number of Friends : 12
+Total Number of possible ways : 140152
+****************************************************
+
+********* Running 2nd Efficient Algorithm **********
+Enter the Number of Friends : 10
+Total Number of possible ways : 9496
+****************************************************
 ```
 
 #### Personalised Initialization Method (optional)
