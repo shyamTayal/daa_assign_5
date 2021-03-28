@@ -120,8 +120,8 @@ Resulting in constant space complexity  *O(1)*
 
 ---
 ## References
-[x] Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. 
+- [x] Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. 
 ~ Introduction to Algorithms. McGraw-Hill Book Company, Toronto.
 
-[x] Wikipedia : [Dynamic Programming](https://en.wikipedia.org/wiki/Dynamic_programming )
+- [x] Wikipedia : [Dynamic Programming](https://en.wikipedia.org/wiki/Dynamic_programming )
 
