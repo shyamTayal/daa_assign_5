@@ -9,15 +9,15 @@ ll friendPairing(int , ll []);
 
 int main()
 {
-    freopen("input_testcase.txt","r",stdin);
+    freopen("input_testcase_dp.txt","r",stdin);
     freopen("output.txt","w",stdout);
 
     int t;  cin>>t;
     while(t--)
     {
-      int n;      
+      int n;
       cin>>n;
-      ll totalPairs[n+1];      
+      ll totalPairs[n+1];
 
       cout<<friendPairing(n,totalPairs)<<'\n';
     }
