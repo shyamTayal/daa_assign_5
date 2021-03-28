@@ -23,20 +23,21 @@ Indian Institute of Information Technology Allahabad, India
 \thanks{}
 }
 
-\author{\IEEEauthorblockN{1\textsuperscript{st} Abhijeet Sonkar}
-\IEEEauthorblockA{\textit{IIB2019009} \\
-iiB2019009@iiita.ac.in \\
-Abhijeet-sonkar}
-\and
-\IEEEauthorblockN{2\textsuperscript{nd} Aditya Raj}
+\author{
+\IEEEauthorblockN{1\textsuperscript{st} Aditya Raj}
 \IEEEauthorblockA{\textit{IIB2019007} \\
 iib2019007@iiita.ac.in \\
 Adityahulk}
 \and
-\IEEEauthorblockN{3\textsuperscript{rd} Shyam Tayal}
+\IEEEauthorblockN{2\textsuperscript{nd} Shyam Tayal}
 \IEEEauthorblockA{\textit{IIB2019008} \\
 iib2019008@iiita.ac.in \\
 shyamTayal}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Abhijeet Sonkar}
+\IEEEauthorblockA{\textit{IIB2019009} \\
+iib2019009@iiita.ac.in \\
+Abhijeet-sonkar}
 }
 
 
@@ -63,7 +64,7 @@ Construct an optimal solution from computed information.
 \section{Algorithm Design}
 We have devised two algorithms to Find the possible pairs among n friends.
 
-Implementing steps of Naive Algorithm-> 
+Implementing steps of Naive Algorithm->
 All possible combination of pair of n friends can be calculated with
 the help n-1 and n-2 friends
 We can solve this dependency with the help of recursion
@@ -74,17 +75,15 @@ The recursion dependency calculates n as pair(n-1)*((n-1)*pair(n-2))
 
 \begin{algorithm}[H]
 \begin{lstlisting}
-ll makePair(ll n)
-{
+function makePair(n) :
 
-    if(n==0||n==1)  return 1;
+    if(n = 0 or n = 1)
+        return 1
 
-    ll selected = (n-1)*makePair(n-2);
-    ll notSelected= makePair(n-1);
+    selected = (n-1) * makePair (n-2)
+    notSelected = makePair(n-1)
 
-
-    return selected+notSelected;
-}
+    return selected + notSelected;
 
 \end{lstlisting}
 
@@ -92,7 +91,7 @@ ll makePair(ll n)
 \end{algorithm}
 
 \bigskip
-The dependency relationship for any recursion problem can be solved 
+The dependency relationship for any recursion problem can be solved
 using Dynamic Programming.
 
 \newline Here also for every recursion output,we can store it for future use,i.e memoization.
@@ -103,16 +102,20 @@ exponential time complexity to linear.
 
 \begin{algorithm}[H]
 \begin{lstlisting}
-totalPairs[0]=1;
-    totalPairs[1]=1;
+friendsPairing(totPairs[],N) :
 
-    for (ll  curr =2 ; curr <=n ; curr++)
-    {
-        totalPairs[curr]= totalPairs[curr-1]+(curr-1)*totalPairs[curr-2];
-    }
+    totPairs[0]=1;
+    totPairs[1]=1;
+
+    for curr in range 2 to N :
+        totPairs[curr] = totPairs[curr-1]
+        totPairs+= (curr-1)*totalPairs[curr-2]
+
+    return totPairs[N]
+
 \end{lstlisting}
 
- \caption{Eficient Algorithm(Dynamic Programming1)}
+ \caption{Eficient Algorithm (DP1)}
 \end{algorithm}
 \bigskip
 
@@ -125,63 +128,57 @@ The dynamic programming can also be more optimized in space complexity by using 
 
 \begin{algorithm}[H]
 \begin{lstlisting}
-for (ll  curr =2 ; curr <=n ; curr++)
-    {
+friendsPairing(n) :
 
-       totalPairs=prev+(curr-1ll)*prev2;
-       prev2=prev;
-       prev=totalPairs;
+    for curr in range 2 to n :
+       totalPairs = prev+ (curr-1)*prev2
+       prev2=prev
+       prev=totalPairs
 
-   
-    }
-    
-if(n==0||n==1) totalPairs=1;
+    if n = 0 or n = 1
+        totalPairs=1
+
+    return totalPairs
+
 \end{lstlisting}
 
- \caption{Eficient Algorithm(Dynamic Programming2)}
+ \caption{Eficient Algorithm 2 (DP2)}
 \end{algorithm}
 \bigskip
-\newpage
 
 
 \section{Algorithm Analysis}
-\centerline{\includegraphics[width=80mm]{tc_naive.png}}
+
+\begin{figure}[h!]
+\centerline{\includegraphics[width=90mm]{naive.png}}
+\caption{Naive Algorithm}
+\centerline{\textit{}}
+\label{fig:graph}
+\end{figure}
+
+\begin{figure}[h!]
+\centerline{\includegraphics[width=90mm]{dp.png}}
+\caption{DP Algorithm 1 VS N}
+\centerline{\textit{ }}
+\label{fig:graph}
+\end{figure}
+
+\begin{figure}[h!]
+\centerline{\includegraphics[width=90mm]{comp.png}}
 \caption{Algorithm Analysis}
 \centerline{\textit{ }}
 \label{fig:graph}
 \end{figure}
 
-% \newpage
-
-
-\begin{figure}[h!]
-\centerline{\includegraphics[width=80mm]{tc_naive.png}}
-\caption{Algorithm 1 VS N}
-\centerline{\textit{ }}
-\label{fig:graph}
-\end{figure}
-
-\begin{figure}[h!]
-\centerline{\includegraphics[width=80mm]{tc_linear.png}}
-\caption{Algorithm 2 VS N}
-\centerline{\textit{ }}
-\label{fig:graph}
-\end{figure}
-
-\begin{figure}[h!]
-\centerline{\includegraphics[width=80mm]{tc_log.png}}
-\caption{Algorithm 2 VS N}
-\centerline{\textit{ }}
-\label{fig:graph}
- \end{figure}
 \newpage
 
 \section{Conclusion}
-DP 2 is more efficient algorithmThe reason is both time complexity and space complexity equation
-The second algorithm has O(N) i.e linear time dependency while first algorithm has. The main reason behind this is the use of Dynamic Programming also by iteration that reduces both time complexity and space complexity. The recursion has time complexity problem but even DP1 i.e implemented by memoization has space occurrence which is not present in iterative version i.e DP2.
+DP 2 is more efficient algorithm. The reason is both time complexity and space complexity equation.
+The second algorithm has O(N) i.e linear time dependency while first algorithm has O(2\textsuperscript{N}) i.e. exponential time dependency. \\
+The main reason behind this is the use of Dynamic Programming also by iteration that reduces both time complexity and space complexity. The recursion has time complexity problem but even DP1 i.e implemented by memoization has linear space complexity occurrence which is not present in iterative version i.e DP2.
 
 \begin{thebibliography}{00}
-\bibitem{b1}https://www.geeksforgeeks.org/dynamic-programming/
+\bibitem{b1}DP : https://www.geeksforgeeks.org/dynamic-programming/
 \bibitem{b2}https://www.geeksforgeeks.org/tabulation-vs-memoization/
 \end{thebibliography}
 
