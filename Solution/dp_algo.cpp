@@ -26,8 +26,8 @@ void solve()
     }
 
 
-    cout<<"Total Number of possible ways"<<totalPairs[n]<<endl;
-
+    cout<<"Total Number of possible ways : "<<totalPairs[n]<<endl;
+    cout<<"**************************************************** \n";
 
 }
 

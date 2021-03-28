@@ -27,13 +27,14 @@ void solve()
     cin>>n;
 
     ll totalPairs=makePair(n);
-    cout<<"Total Number of possible ways"<<totalPairs<<endl;
+    cout<<"Total Number of possible ways : "<<totalPairs<<endl;
+    cout<<"**************************************************** \n";
 
 }
 
 int main()
 {
-    cout<<"*********** Running Naive Algorithm ************ \n";
+    cout<<"************* Running Naive Algorithm ************** \n";
     int t=1;
 
     while(t)

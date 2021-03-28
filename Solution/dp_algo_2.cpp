@@ -25,19 +25,20 @@ void solve()
        prev2=prev;
        prev=totalPairs;
 
-   
+
     }
-    
+
     if(n==0||n==1) totalPairs=1;
 
-    cout<<"Total Number of possible ways"<<totalPairs<<endl;
+    cout<<"Total Number of possible ways : "<<totalPairs<<endl;
+    cout<<"**************************************************** \n";
 
 
 }
 
 int main()
 {
-    cout<<"*********** Running Efficient Algorithm ************ \n";
+    cout<<"********* Running 2nd Efficient Algorithm ********** \n";
     int t=1;
 
     while(t)
