@@ -104,17 +104,20 @@ Dynamic Programming is an optimization technique where we  store the overlapping
 ## Analysis
 ### Time Complexity
 
-In the given recurrence relation :- 
+In the given recurrence relation :- <br />
 ```totalPair(i)  = totalPair(i-1) + (i-1) * ( totalPair(i-2) )``` 
 or ```T(N) = T(N-1) + kT(N-2)```
 We memoize each subproblems. Each sub-problems requires constant time i.e O(1).
 Since there are 'n' such sub-problems total time complexity will be linear i.e *O(n)*
 
 ### Space Complexity
-~ The total time complexity will be  O(N) ~
-~ We need to store the answer of each sub-problems. Since there are 'n' such sub-problems  
-~ We can  reduce the space complexity by only storing the last two sub-problems. 
+
+The total space complexity will be  O(N) <br/>
+We need to store the answer of each sub-problems. Since there are 'n' such sub-problems .
+
+We can  reduce the space complexity by only storing the last two sub-problems. 
 Resulting in constant space complexity  *O(1)* 
+
 ---
 ## References
 [x] Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. 
